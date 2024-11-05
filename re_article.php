@@ -367,7 +367,40 @@ if (isset($_GET['id'])) {
 .btn-danger {
     margin-top: 10px; /* Adds margin to delete button */
 }
+.login-btn {
+    background-color: black; /* พื้นหลังสีดำ */
+    color: white; /* ตัวอักษรสีขาว */
+    border: 2px solid #007bff; /* ขอบสีน้ำเงิน */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-right: 10px; /* ระยะห่างทางด้านขวา */
+    margin-bottom: 10px; /* ระยะห่างทางด้านล่าง */
+}
 
+.login-btn:hover {
+    background-color: #007bff; /* เปลี่ยนพื้นหลังเป็นน้ำเงินเมื่อ hover */
+    color: white; /* รักษาสีตัวอักษรไว้ */
+}
+
+.signup-btn {
+    background-color: black; /* พื้นหลังสีดำ */
+    color: white; /* ตัวอักษรสีขาว */
+    border: 2px solid yellow; /* ขอบสีเหลือง */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 10px; /* เพิ่มระยะห่างทางด้านล่าง */
+}
+
+.signup-btn:hover {
+    background-color: yellow; /* เปลี่ยนพื้นหลังเป็นเหลืองเมื่อ hover */
+    color: black; /* เปลี่ยนสีตัวอักษรเป็นดำเมื่อ hover */
+}
     </style>
 </head>
 <body>
@@ -381,7 +414,9 @@ if (isset($_GET['id'])) {
         <li><a href="re_layout.php">ข่าวสาร</a></li>
         <li><a href="re_contact.php">ติดต่อเรา</a></li>
         </ul>
-        <a href="logout.php"><button class="logout-btn">Logout</button></a>
+        <!-- ปุ่มเข้าสู่ระบบและสมัครสมาชิก -->
+        <button class="login-btn" onclick="window.location.href='login.php'">เข้าสู่ระบบ</button>
+        <button class="signup-btn" onclick="window.location.href='register.php'">สมัครสมาชิก</button>
     </div>
 
     <!-- Button to toggle Sidebar -->
@@ -440,23 +475,16 @@ if (isset($_GET['id'])) {
                     </div>
                 <?php endif; ?>
             </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JavaScript for dropdown toggle -->
-    <script>
-        function toggleDropdown() {
-            var dropdown = document.getElementById("dropdownMenu");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    <footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
         }
-
-        // ปิดเมนูเมื่อคลิกนอกเมนู
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile, .profile *')) {
-                document.getElementById("dropdownMenu").style.display = "none";
-            }
-        }
-    </script>
+</style>
 </body>
 </html>

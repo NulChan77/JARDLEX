@@ -61,5 +61,16 @@ if (isset($_GET['q'])) {
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        </style>
 </body>
 </html>

@@ -208,5 +208,6 @@ $conn->close();
         
         <a href="index.php" class="back-home">Back to Home</a>
     </div>
+    
 </body>
 </html>

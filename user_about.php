@@ -292,7 +292,7 @@ $user = $result->fetch_assoc();
         <li><a href="user_layout.php">ข่าวสาร</a></li>
         <li><a href="user_contact.php">ติดต่อเรา</a></li>
             </ul>
-            <a href="logout.php"><button class="logout-btn">Logout</button></a>
+            <a href="logout.php" onclick="return confirmLogout();"><button class="logout-btn">Logout</button></a>
     </div>
     <!-- ปุ่มเปิด-ปิด Sidebar -->
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
@@ -327,5 +327,16 @@ $user = $result->fetch_assoc();
         <a href="https://www.linkedin.com/company/yourcompany" target="_blank">LinkedIn</a>
     </p>
 </div>
+<footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+</style>
 </body>
 </html>

@@ -199,7 +199,7 @@ if (isset($_GET['id'])) {
                                 <?php
                                 // ดึงข้อมูลบทความล่าสุดจากฐานข้อมูล
                                 $recentArticles = $pdo->query("SELECT id, title FROM articles ORDER BY created_at DESC LIMIT 12")->fetchAll();
-                                $chunks = array_chunk($recentArticles, 4); // แบ่งเป็นกลุ่มละ 4 บทความ
+                                $chunks = array_chunk($recentArticles, 10); // แบ่งเป็นกลุ่มละ 10 บทความ
 
                                 foreach ($chunks as $index => $chunk): ?>
                                     <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
@@ -213,15 +213,6 @@ if (isset($_GET['id'])) {
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-
-                            <!-- ปุ่มควบคุมการเลื่อน -->
-                            <a class="carousel-control-prev" href="#recentArticlesCarousel" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#recentArticlesCarousel" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
                             </a>
                         </div>
                     </div>
@@ -236,8 +227,18 @@ if (isset($_GET['id'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <div class="container my-4 text-center">
-        <a href="admin.php" class="btn btn-secondary">Back</a>
+        <a href="dashboard.php" class="btn btn-secondary">Back</a>
     </div>
-
+    <footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+</style>
 </body>
 </html>

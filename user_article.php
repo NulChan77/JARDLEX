@@ -383,7 +383,11 @@ if (isset($_GET['id'])) {
         </ul>
         <a href="logout.php"><button class="logout-btn">Logout</button></a>
     </div>
-
+    <script>
+function confirmLogout() {
+        return confirm("คุณแน่ใจหรือไม่ว่าต้องการล็อกเอ้า?");
+    }
+</script>
     <!-- Button to toggle Sidebar -->
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
@@ -443,141 +447,16 @@ if (isset($_GET['id'])) {
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Profile Section with Dropdown -->
-<div class="profile" onclick="toggleDropdown()">
-    <div class="profile-icon">
-        <?php echo isset($user['firstname']) ? strtoupper(substr($user['firstname'], 0, 1)) : 'U'; ?>
-    </div>
-    <div class="dropdown-menu" id="dropdownMenu">
-        <!-- แสดงชื่อผู้ใช้ -->
-        <div>Username: <?php echo isset($user['username']) ? htmlspecialchars($user['username']) : 'Guest'; ?></div>
-        <a href="edit_profile.php">แก้ไขข้อมูลส่วนตัว</a>
-        <a href="logout.php">ล็อกเอ้า</a>
-    </div>
-</div>
-
-<!-- JavaScript for toggling dropdown menu -->
-<script>
-function toggleDropdown() {
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    dropdownMenu.classList.toggle('show');
-}
-
-// ปิด dropdown เมื่อคลิกนอกพื้นที่
-window.onclick = function(event) {
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    if (!event.target.matches('.profile') && !event.target.closest('.profile')) {
-        if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.classList.remove('show');
-        }
-    }
-};
-</script>
-    <style>
-        .profile {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .profile-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #333;
+    <footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
             color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
+            text-align: center;
+            padding: 15px 0;
         }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
-            width: 200px; /* กำหนดความกว้างของเมนู */
-        }
-
-        .dropdown-menu a, .dropdown-menu div {
-            display: block;
-            padding: 10px 15px;
-            color: #333;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .dropdown-menu div {
-            font-weight: bold;
-            color: #555;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #f0f0f0;
-        }
-
-        .button-container .btn {
-            padding: 10px 20px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-secondary {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #218838;
-        }
-
-        .logout {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        .logout:hover {
-            background-color: #c82333;
-        }
-    </style>
-    <!-- JavaScript for dropdown toggle -->
-    <script>
-        function toggleDropdown() {
-            var dropdown = document.getElementById("dropdownMenu");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-
-        // ปิดเมนูเมื่อคลิกนอกเมนู
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile, .profile *')) {
-                document.getElementById("dropdownMenu").style.display = "none";
-            }
-        }
-    </script>
+</style>
 </body>
 </html>

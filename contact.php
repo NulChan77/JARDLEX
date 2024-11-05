@@ -207,6 +207,16 @@ body {
     <h3>ที่อยู่ของเรา</h3>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62323.22815515674!2d99.91703137166367!3d12.502782069260228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fdac42d71b5507%3A0x40223bc2c381270!2z4LiV4Liz4Lia4LilIOC4q-C4meC4reC4h-C5geC4gSDguK3guLPguYDguKDguK3guKvguLHguKfguKvguLTguJkg4Lib4Lij4Liw4LiI4Lin4Lia4LiE4Li14Lij4Li14LiC4Lix4LiZ4LiY4LmMIDc3MTEw!5e0!3m2!1sth!2sth!4v1730579372521!5m2!1sth!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
-
+<footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+</style>
 </body>
 </html>

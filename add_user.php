@@ -11,8 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// ตรวจสอบการส่งข้อมูลจากฟอร์ม
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $gmail = $_POST['gmail'];
@@ -20,18 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // สร้างคำสั่ง SQL เพื่อเพิ่มผู้ใช้ใหม่
-    $sql = "INSERT INTO users (firstname, lastname, gmail, password, phone) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO users (username, firstname, lastname, gmail, password, phone) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt === false) {
         die("Error preparing the statement: " . $conn->error);
     }
 
-    $stmt->bind_param("sssss", $firstname, $lastname, $gmail, $hashed_password, $phone);
+    $stmt->bind_param("ssssss", $username, $firstname, $lastname, $gmail, $hashed_password, $phone);
 
     if ($stmt->execute()) {
-        header('Location: user_list.php'); // เปลี่ยนไปยังหน้า User List
+        header('Location: user_list.php'); 
         exit;
     } else {
         echo "Error: " . $stmt->error;
@@ -42,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,44 +57,65 @@ $conn->close();
         }
         .container {
             background-color: #fff;
-            padding: 40px; /* เพิ่ม padding ให้กับคอนเทนเนอร์ */
+            padding: 50px; /* เพิ่ม padding ให้กับคอนเทนเนอร์ */
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px; /* กำหนดความกว้างสูงสุด */
-            margin: auto; /* จัดกลาง */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 600px; /* เพิ่มขนาดความกว้าง */
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 1.8em; /* เพิ่มขนาดหัวข้อ */
+            color: #333;
         }
         input[type="text"],
         input[type="email"],
         input[type="password"],
         button {
-            width: 100%; /* ให้ช่อง input ขยายเต็มความกว้าง */
-            padding: 12px; /* เพิ่ม padding สำหรับช่อง input */
-            margin: 10px 0; /* เพิ่ม margin ระหว่าง input */
+            width: 100%;
+            padding: 15px; /* เพิ่ม padding ให้ใหญ่ขึ้น */
+            font-size: 1.1em; /* เพิ่มขนาดฟอนต์ */
+            margin: 12px 0;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 6px;
         }
         button {
-            background-color: #28a745; /* สีพื้นหลังของปุ่ม */
-            color: white; /* สีข้อความของปุ่ม */
-            cursor: pointer; /* แสดงว่าเป็นปุ่มคลิกได้ */
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em; /* เพิ่มขนาดฟอนต์ของปุ่ม */
+            padding: 15px;
         }
         button:hover {
-            background-color: #218838; /* สีพื้นหลังเมื่อ hover */
+            background-color: #218838;
+        }
+        .back-button {
+            background-color: #6c757d;
+            color: white;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 <div class="container">
-        <h2>Add User</h2>
-        <form method="POST" action="add_user.php">
-            <input type="text" name="firstname" placeholder="First Name" required>
-            <input type="text" name="lastname" placeholder="Last Name" required>
-            <input type="email" name="gmail" placeholder="Email" required>
-            <input type="text" name="phone" placeholder="Phone" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Add User</button>
-        </form>
-        <a href="user_list.php"><button class="back-button">Back to User List</button></a>
-    </div>
+    <h2>Add User</h2>
+    <form method="POST" action="add_user.php">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="text" name="firstname" placeholder="First Name" required>
+        <input type="text" name="lastname" placeholder="Last Name" required>
+        <input type="email" name="gmail" placeholder="Email" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Add User</button>
+    </form>
+    <a href="user_list.php"><button class="back-button">Back to User List</button></a>
+</div>
 </body>
 </html>

@@ -712,7 +712,7 @@ body {
             </div>
         <?php endwhile; ?>
     </div>
-    <button class="styled-button" onclick="window.location.href='user_checkpoints.php'">รายละเอียด</button>
+    <button class="styled-button" onclick="window.location.href='re_checkpoints.php'">รายละเอียด</button>
 </div>
 
         <div class="carousel-container" id="carousel">
@@ -757,7 +757,7 @@ body {
         <iframe src="<?php echo $row['video_url']; ?>" allowfullscreen></iframe>
 
          </div>
-         <button class="styled-button" onclick="window.location.href='user_article.php'">แสดงเพิ่มเติม</button>
+         <button class="styled-button" onclick="window.location.href='re_checkpoints.php'">แสดงเพิ่มเติม</button>
         </div>
     </div>
     <footer>

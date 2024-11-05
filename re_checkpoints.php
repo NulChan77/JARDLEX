@@ -263,6 +263,16 @@ body {
 <div class="container my-4 text-center">
     <a href="user_dashboard.php" class="btn btn-secondary">Back</a>
 </div>
-
+<footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+</style>
 </body>
 </html>

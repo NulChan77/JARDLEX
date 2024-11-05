@@ -105,7 +105,7 @@ $connection->close();
         body {
             font-family: 'Itim', sans-serif; /* Updated to use the Itim font */
             background-color: #f4f4f4;
-            background: linear-gradient(to right, #e0f2f1 50%, #ffffff 50%);
+            background: #fff;
             margin: 0;
             padding: 0;
         }
@@ -558,8 +558,16 @@ $connection->close();
     </script>
 
 <footer>
-    <p>ข้อมูลติดต่อ: อีเมล info@example.com | โทร 012-345-6789</p>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
 </footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+</style>
 
 </body>
 </html>

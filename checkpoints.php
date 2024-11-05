@@ -138,11 +138,13 @@ $comments_stmt = $conn->prepare($comments_sql);
     <div class="sidebar" id="sidebar">
         <h2>เมนูหลัก</h2>
         <ul>
-        <li><a href="user_dashboard.php">หน้าแรก</a></li>
-        <li><a href="user_about.php">เกี่ยวกับเรา</a></li>
-        <li><a href="user_checkpoints.php">จุดเช็คอิน</a></li>
-        <li><a href="user_layout.php">ข่าวสาร</a></li>
-        <li><a href="user_contact.php">ติดต่อเรา</a></li>
+        <li><a href="admin.php">หน้าแรก</a></li>
+            <li><a href="about.php">เกี่ยวกับเรา</a></li>
+            <li><a href="article.php">สถานที่ท่องเที่ยว</a></li>
+            <li><a href="layout.php">ข่าวสาร</a></li>
+            <li><a href="checkpoints.php">จุดเช็คอิน</a></li>
+            <li><a href="contact.php">ติดต่อเรา</a></li>
+            <li><a href="dashboard.php">Dashboard</a></li>
             </ul>
             <a href="logout.php" onclick="return confirmLogout();"><button class="logout-btn">Logout</button></a>
     </div>
@@ -309,7 +311,7 @@ $comments_stmt = $conn->prepare($comments_sql);
     </div>
     <p></p>
     <div class="container my-4 text-center">
-        <a href="user_dashboard.php" class="btn btn-secondary">Back</a>
+        <a href="admin.php" class="btn btn-secondary">Back</a>
     </div>
 <!-- Profile Section with Dropdown -->
 <div class="profile" onclick="toggleDropdown()">
@@ -429,7 +431,17 @@ $comments_stmt = $conn->prepare($comments_sql);
         }
     }
 </script>
-
+<footer>
+    <p>ข้อมูลติดต่อ: อีเมล dee055909@gmail.com | โทร 080-1475044</p>
+</footer>
+<style>
+                header, footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+</style>
 </body>
 </html>
 <?php

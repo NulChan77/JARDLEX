@@ -5,14 +5,12 @@ if (!isset($_SESSION['logged_in'])) {
     exit;
 }
 
-// เชื่อมต่อฐานข้อมูล
 $conn = new mysqli('localhost', 'root', '', 'user_management');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// ตรวจสอบว่ามีการส่ง user_id มาหรือไม่
 if (!isset($_GET['id'])) {
     header('Location: user_list.php');
     exit;
@@ -20,12 +18,10 @@ if (!isset($_GET['id'])) {
 
 $user_id = $_GET['id'];
 
-// แก้ไขรหัสผ่าน
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // ตรวจสอบว่ารหัสผ่านใหม่และการยืนยันรหัสผ่านตรงกันหรือไม่
     if ($new_password === $confirm_password) {
         $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
@@ -40,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Error updating password.";
         }
     } else {
-        echo "Passwords do not match."; // แสดงข้อความเมื่อรหัสผ่านไม่ตรงกัน
+        echo "Passwords do not match.";
     }
 }
 
@@ -58,36 +54,66 @@ $conn->close();
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
         }
         .container {
             background-color: #fff;
-            padding: 40px; /* เพิ่ม padding ให้กับคอนเทนเนอร์ */
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px; /* กำหนดความกว้างสูงสุด */
-            margin: auto; /* จัดกลาง */
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        h2 {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
         }
         input[type="password"],
         button {
-            width: 100%; /* ให้ช่อง input ขยายเต็มความกว้าง */
-            padding: 12px; /* เพิ่ม padding สำหรับช่อง input */
-            margin: 10px 0; /* เพิ่ม margin ระหว่าง input */
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            font-size: 1.1em;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 6px;
         }
         button {
-            background-color: #007bff; /* สีพื้นหลังของปุ่ม */
-            color: white; /* สีข้อความของปุ่ม */
-            cursor: pointer; /* แสดงว่าเป็นปุ่มคลิกได้ */
+            background-color: #007bff;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+            padding: 15px;
         }
         button:hover {
-            background-color: #0056b3; /* สีพื้นหลังเมื่อ hover */
+            background-color: #0056b3;
         }
         .back-link {
-            display: block; /* ทำให้ปุ่ม Back เป็นบล็อค */
-            text-align: center; /* จัดกลางข้อความ */
-            margin-top: 20px; /* เพิ่ม margin บน */
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link button {
+            background-color: #6c757d;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .back-link button:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
